@@ -70,6 +70,15 @@ def smallest(my_float_column):
 
 # write a new file with largest number from each col. as the last row
 def write_file(data, smallest, largest):
+  file = open("my_new_amd.csv", "w") # establish a new file
+  for row in data:
+    file.write(",".join(row))
+    file.write("\n")
+  file.write(",".join(smallest))
+  file.write("\n")
+  file.write(",".join(largest))
+  file.write("\n")
+
   # large_num_list = ["largest="]
   # for i in range(1, 6):
   #   temp = get_column(data, i)
@@ -81,14 +90,6 @@ def write_file(data, smallest, largest):
  # for row in data:
   #  print(row)
 
-  file = open("my_new_amd.csv", "w") # establish a new file
-  for row in data:
-    file.write(",".join(row))
-    file.write("\n")
-  file.write(",".join(smallest))
-  file.write("\n")
-  file.write(",".join(largest))
-  file.write("\n")
 
 def get_smallest_and_largest(data2):
   largest_list = []
@@ -121,7 +122,7 @@ def main():
   # call read_data() to return data2 (a nested list)
   data2 = read_data("amd.csv")
 
-
+  # call get_smallest_and_largest()
   smallest_final, largest_final = get_smallest_and_largest(data2)
 
   # write the max number and add it to a new file
