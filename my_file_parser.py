@@ -14,17 +14,10 @@ def read_data(path):
 
   # convert data (string) to data1 (list)
   data1 = data.split("\n")
-  # print(data1)
-  # print("data1 type:", type(data1)) # list
-
-  # convert data1 (list) to a nested list: data2.
   data2 = []
   for temp in data1:
     temp = temp.split(",")
     data2.append(temp)
-  # print(type(data2)) # list
-  # print("data2", data2) # nested list: data2 (inside the list: strings)
-  # print("data2 length:", len(data2)) # 6
   return data2
 
 
@@ -96,15 +89,16 @@ def get_smallest_and_largest(data2):
   smallest_list = []
   for i in range(1, 6):
     list_string = get_column(data2, i)
-    print(list_string)
+    print("in 99", list_string)
     my_float_column = float_column(list_string)
-    print(my_float_column)
+    print("in 101", my_float_column)
     get_largest = largest(my_float_column)
     get_smallest = smallest(my_float_column)
     largest_list.append(get_largest)
     smallest_list.append(get_smallest)
   print("largest", largest_list)
   print("smallest", smallest_list)
+  
   smallest_final = ["smallest="]
   largest_final = ["largest="]
   for number in smallest_list:
